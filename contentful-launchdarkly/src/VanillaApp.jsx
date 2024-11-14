@@ -1,7 +1,6 @@
 import React from "react";
 import * as contentful from "contentful";
-
-// import marked from "marked";
+import "./styles.css";
 
 var contentfulClient = contentful.createClient({
   accessToken:
