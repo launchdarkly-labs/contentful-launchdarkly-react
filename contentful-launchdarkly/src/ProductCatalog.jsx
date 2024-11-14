@@ -1,6 +1,6 @@
 import React from "react";
 import * as contentful from "contentful";
-import "./styles.css";
+import "./ProductCatalog.css";
 import { useFlags } from 'launchdarkly-react-client-sdk';
 
 // ordinarily these should be saved in an .ENV file
