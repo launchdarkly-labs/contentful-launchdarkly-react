@@ -63,6 +63,7 @@ const ProductDetails = ({ fields }) => {
         {fields.categories.map((category) => category.fields.title).join(", ")}
       </p>
       <p>{fields.price} &euro;</p>
+      
       <p className="product-tags">
         <span>Tags:</span> {fields.tags.join(", ")}
       </p>
