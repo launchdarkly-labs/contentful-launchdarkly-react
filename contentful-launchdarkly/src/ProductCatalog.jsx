@@ -1,6 +1,7 @@
 import React from "react";
 import * as contentful from "contentful";
 import "./styles.css";
+import { useFlags } from 'launchdarkly-react-client-sdk';
 
 // ordinarily these should be saved in an .ENV file
 // but these are demo credentials that are public!
@@ -56,6 +57,8 @@ const ProductItem = ({ product }) => {
 };
 
 const ProductDetails = ({ fields }) => {
+  const { showProductTags } = useFlags();
+  console.log("showProductTags", showProductTags);
   return (
     <>
       <ProductHeader fields={fields} />
@@ -63,10 +66,11 @@ const ProductDetails = ({ fields }) => {
         {fields.categories.map((category) => category.fields.title).join(", ")}
       </p>
       <p>{fields.price} &euro;</p>
-      
-      <p className="product-tags">
-        <span>Tags:</span> {fields.tags.join(", ")}
-      </p>
+      {showProductTags ? (
+        <p className="product-tags">
+          <span>Tags:</span> {fields.tags.join(", ")}
+        </p>
+      ): null}
     </>
   );
 };

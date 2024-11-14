@@ -6,14 +6,14 @@ import { asyncWithLDProvider } from 'launchdarkly-react-client-sdk';
 
 const init = async () => {
   const LDProvider = await asyncWithLDProvider({
-    clientSideID: 'client-side-id-123abc',
+    clientSideID: '66fc46fae1e7ff08544c1681',
     context: {
       "kind": "user",
       "key": "user-key-123abc",
       "name": "Sandy Smith",
       "email": "sandy@example.com"
     },
-    options: { /* ... */ }
+    options: { }
   });
 
   createRoot(document.getElementById('root')).render(

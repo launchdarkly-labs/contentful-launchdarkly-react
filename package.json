@@ -1,6 +1,6 @@
 {
   "dependencies": {
-    "dotenv": "^16.4.5",
+    "contentful": "^11.2.1",
     "launchdarkly-react-client-sdk": "^3.6.0"
   }
 }
