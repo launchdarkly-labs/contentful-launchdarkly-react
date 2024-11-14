@@ -2,17 +2,17 @@ import React from "react";
 import * as contentful from "contentful";
 import "./styles.css";
 
-var contentfulClient = contentful.createClient({
+// ordinarily these should be saved in an .ENV file
+// but these are demo credentials that are public!
+const contentfulClient = contentful.createClient({
   accessToken:
     "0e3ec801b5af550c8a1257e8623b1c77ac9b3d8fcfc1b2b7494e3cb77878f92a",
   space: "wl1z0pal05vy",
 });
 
-var PRODUCT_CONTENT_TYPE_ID = "2PqfXUJwE8qSYKuM0U6w8M";
+const PRODUCT_CONTENT_TYPE_ID = "2PqfXUJwE8qSYKuM0U6w8M";
 
-var container = document.getElementById("content");
-
-const VanillaApp = () => {
+const ProductCatalog = () => {
   const [products, setProducts] = React.useState([]);
 
   React.useEffect(() => {
@@ -42,7 +42,6 @@ const ProductList = ({ products }) => {
 
 const ProductItem = ({ product }) => {
   const { fields } = product;
-  console.log(fields);
 
   return (
     <div className="product-in-list">
@@ -91,8 +90,6 @@ const ProductImage = ({ image, slug }) => {
       <a href={`product/${slug}`}>
         <img
           src={image.fields.file.url}
-          width="150"
-          height="150"
           alt={image.fields.title || "Product image"}
         />
       </a>
@@ -101,4 +98,4 @@ const ProductImage = ({ image, slug }) => {
   return null;
 };
 
-export default VanillaApp;
+export default ProductCatalog;
